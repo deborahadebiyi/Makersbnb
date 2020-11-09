@@ -27,4 +27,8 @@ As a user
 So that I can list a space,
 I would like my space to have a name, description and price.
 
+As a user
+So that someone can book my space
+I would like to offer a range of available dates
+
 ```
