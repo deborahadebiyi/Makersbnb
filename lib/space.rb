@@ -18,4 +18,8 @@ class Space
   def self.create_space
 
   end
+
+  def self.is_available?
+    
+  end
 end
