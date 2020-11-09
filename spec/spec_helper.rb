@@ -14,6 +14,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  ENV['ENVIRONMENT'] = 'test'
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -97,4 +98,18 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  require 'capybara/rspec'
+  require 'simplecov'
+  require 'simplecov-console'
+  require 'test_setup'
+
+  ENV['RACK_ENV'] = 'test'
+
+  config.before(:each) do
+    clear_test_db
+  end
+
+  require File.join(File.dirname(__FILE__), '..', 'app.rb')
+  Capybara.app = MakersBnB
+
 end
