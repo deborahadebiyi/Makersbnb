@@ -1,7 +1,9 @@
 require 'sinatra/base'
 require_relative 'lib/user'
+require 'sinatra/flash'
 class MakersBnB < Sinatra::Base
   enable :sessions, :method_override
+  register Sinatra::Flash
 
   get '/' do 
     erb :index
@@ -11,6 +13,7 @@ class MakersBnB < Sinatra::Base
     if User.log_in(username: params[:username], password: params[:password])
       redirect '/options'
     else 
+      flash[:notice] = 'Incorrect username or password!'
       redirect '/'
     end
   end 
@@ -19,6 +22,7 @@ class MakersBnB < Sinatra::Base
     if User.sign_up(username: params[:new_username], password: params[:new_password])
       redirect '/options'
     else 
+      flash[:notice] = 'Username taken!'
       redirect '/'
     end
   end 
