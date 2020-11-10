@@ -13,6 +13,11 @@ describe Space do
       expect(spaces).to include 'The house'
     end
   end
+  #need to see all the arguments displayed
+
+  #describe '.create_space' do
+    # it 'creates a new space'
+  #end
 
 
   it 'responds to method .create_space' do
