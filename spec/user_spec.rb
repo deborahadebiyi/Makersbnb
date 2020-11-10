@@ -25,4 +25,12 @@ RSpec.describe User do
       expect(User.log_in(username: "test", password: "jeff")).to be false
     end
   end
+
+  describe '#find_user' do 
+    it 'finds and return an object of the user using its id' do 
+      User.sign_up(username: "test", password: "test")
+      user = User.find_user(id: User.current_user)
+      expect(user.username).to eq "test"
+    end 
+  end 
 end
