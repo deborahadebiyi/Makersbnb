@@ -102,6 +102,8 @@ RSpec.configure do |config|
   require 'simplecov'
   require 'simplecov-console'
   require 'test_setup'
+  require 'features/web_helpers.rb'
+
 
   ENV['RACK_ENV'] = 'test'
 
