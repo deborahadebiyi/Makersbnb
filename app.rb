@@ -24,6 +24,7 @@ class MakersBnB < Sinatra::Base
   end 
 
   get '/options' do 
+    @user = User.find_user(id: User.current_user)
     erb :options
   end 
 

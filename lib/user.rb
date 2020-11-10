@@ -2,6 +2,7 @@ require 'pg'
 
 class User
   attr_reader :id,:username
+  @current_user
 
   def initialize(id, username)
     @id = id
@@ -12,6 +13,7 @@ class User
     return false if self.name_taken(username: username)
     connection = self.connect
     connection.exec("INSERT INTO users (username,password) VALUES ('#{username}','#{password}')")
+    self.log_in(username: username, password: password)
     return true
   end
 
@@ -20,6 +22,7 @@ class User
     connection = self.connect
     result = connection.exec("SELECT * FROM users WHERE username LIKE '#{username}' AND password LIKE '#{password}'")
     if result.ntuples != 0
+      @current_user = result[0]['id']
       true
     else
       false
@@ -33,6 +36,16 @@ class User
       User.new(user['id'],user['username'])
     end
   end
+  
+  def self.find_user(id:)
+    connection = self.connect
+    result = connection.exec("SELECT * FROM users WHERE id = '#{id}'")
+    User.new(result[0]['id'], result[0]['username'])
+  end
+
+  def self.current_user
+    @current_user
+  end 
 
   private
 

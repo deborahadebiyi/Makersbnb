@@ -1,1 +1,12 @@
-<h1>Welcome<h1>
+<h1>Welcome <%=@user.username%><h1>
+<body>
+    <form action='/list' method='post'>
+        <input type='submit' value='List a space'>
+    </form>
+    <form action='/book' method='post'>
+        <input type='submit' value='Book a space'>
+    </form>
+    <form action='/approve' method='post'>
+        <input type='submit' value='Approve a space'>
+    </form>
+</body>
