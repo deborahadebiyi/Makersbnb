@@ -4,8 +4,8 @@ CREATE TABLE spaces (
     name VARCHAR(60), 
     description VARCHAR(200), 
     price NUMERIC(5, 2), 
-    date DATE, 
-    availability VARCHAR(60), 
-    FOREIGN KEY (user_id) REFERENCES users(id)
-
+    startdate DATE,
+    enddate DATE, 
+    availability BOOLEAN, 
+    user_id INTEGER REFERENCES users (id)
     );

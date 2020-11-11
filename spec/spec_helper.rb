@@ -96,6 +96,11 @@ RSpec.configure do |config|
   require 'simplecov'
   require 'simplecov-console'
   require 'test_setup'
+<<<<<<< HEAD
+=======
+  require 'features/web_helpers.rb'
+
+>>>>>>> 3c004f9c9e5c3ae9b877718066c978dcc7d01796
 
   ENV['RACK_ENV'] = 'test'
 
@@ -106,4 +111,8 @@ RSpec.configure do |config|
   require File.join(File.dirname(__FILE__), '..', 'app.rb')
   Capybara.app = MakersBnB
 #uw
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> 3c004f9c9e5c3ae9b877718066c978dcc7d01796
