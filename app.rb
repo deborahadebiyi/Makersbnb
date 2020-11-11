@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './lib/spaces'
 require_relative 'lib/user'
 require 'sinatra/flash'
+require_relative 'lib/database_connection_setup'
 class MakersBnB < Sinatra::Base
   enable :sessions, :method_override
   register Sinatra::Flash

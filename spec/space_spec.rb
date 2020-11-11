@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-require 'space'
-=======
 require 'spaces'
->>>>>>> 3c004f9c9e5c3ae9b877718066c978dcc7d01796
 
 describe Space do
   it 'responds to method .all' do
@@ -31,8 +27,4 @@ describe Space do
   it 'responds to method .is_available?' do
     expect(Space).to respond_to(:is_available?)
   end
-<<<<<<< HEAD
 end
-=======
-end
->>>>>>> 3c004f9c9e5c3ae9b877718066c978dcc7d01796
