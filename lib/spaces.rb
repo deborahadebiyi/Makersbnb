@@ -3,7 +3,7 @@ require_relative 'database_connection'
 
 class Space
 
-  attr_reader :name, :description, :price, startdate:, enddate:,:availability, :user_id
+  attr_reader :name, :description, :price, :startdate, :enddate,:availability, :user_id
   @current_space
   def initialize(id:, name:, description:, price:, startdate:, enddate:, availability:, user_id:)
     @id = id
@@ -26,7 +26,7 @@ class Space
   end
 
   def self.create_space(name:, description:, price:, startdate:, enddate:, availability:, user_id:)
-    DatabaseConnection.query("INSERT INTO spaces(name, description, price, startdate:, enddate:, availability, user_id) 
+    DatabaseConnection.query("INSERT INTO spaces(name, description, price, startdate, enddate, availability, user_id) 
     VALUES('#{name}', '#{description}', '#{price}', '#{startdate}', '#{enddate}','#{availability}', '#{user_id}')")
     result = DatabaseConnection.query("SELECT * FROM spaces WHERE name LIKE '#{name}'")
     current_space = result[0]['id']
@@ -39,7 +39,7 @@ class Space
     return false 
   end
 
-  def current_space
+  def self.current_space
     @current_space
   end 
 

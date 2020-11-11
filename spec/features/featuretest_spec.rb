@@ -2,7 +2,7 @@ require 'pg'
 
 feature 'View all spaces' do
     scenario 'User views all spaces' do
-        Space.create_space(name: 'The house', description: 'It is a big house', price: 134.67, date: '2020-10-2', availability: 'Available')
+        Space.create_space(name: 'The house', description: 'It is a big house', price: 134.67, startdate: '2020-10-2', startdate: '2020-10-9', availability: 'Available', user_id: User.current_user)
         visit('/spaces')
         expect(page).to have_content 'The house'
     end
@@ -19,4 +19,5 @@ feature 'Creates a new space' do
     click_button 'Create space'
     expect(page).to have_content 'Bob'
   end
+
 end
