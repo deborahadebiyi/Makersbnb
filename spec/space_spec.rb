@@ -34,6 +34,26 @@ describe Space do
     end
   end
 
+  describe '.book' do
+    it 'changes the availability to false and inserts space into booking table' do
+      User.sign_up(username: 'test', password: 'test')
+      Space.create_space(name: 'The house', description: 'This house is amazing!', price: 123.30, startdate: '2020-11-10', enddate: '2020-11-17', availability: true, user_id: User.current_user) 
+      Space.book(space_id: Space.current_space, user_id: User.current_user)
+      space = Space.find_space(space_id: Space.current_space)
+      p space.availability
+      expect(space.availability).to eq 'f'
+    end
+  end
+
+  describe '.is_available' do
+    it 'Checks if availability is set to true' do
+      User.sign_up(username: 'test', password: 'test')
+      Space.create_space(name: 'The house', description: 'This house is amazing!', price: 123.30, startdate: '2020-11-10', enddate: '2020-11-17', availability: true, user_id: User.current_user) 
+      space = Space.find_space(space_id: Space.current_space)
+      expect(space.availability).to eq 't'
+    end
+  end
+
 
   it 'responds to method .create_space' do
     expect(Space).to respond_to(:create_space)
