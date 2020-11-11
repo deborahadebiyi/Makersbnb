@@ -1,6 +1,6 @@
 require 'pg'
 require_relative 'database_connection'
-
+require_relative 'bookings'
 
 class User
   attr_reader :id,:username
@@ -45,6 +45,12 @@ class User
     @current_user
   end 
 
+  def self.show_approvals(id:)
+    result = DatabaseConnection.query("SELECT * FROM bookings WHERE host_id = #{id}")
+    result.map do |booking| 
+      Booking.new(booking['id'], booking['space_id'], booking['host_id'], booking['user_id'], booking['approval'])
+    end 
+  end 
   private
 
   def self.name_taken(username:)

@@ -1,4 +1,5 @@
 require 'user'
+require 'spaces'
 
 RSpec.describe User do
   describe '#sign_up' do
@@ -33,4 +34,14 @@ RSpec.describe User do
       expect(user.username).to eq "test"
     end 
   end 
+
+  describe '#show_approvals' do 
+    it 'shows a list off the booking that the user listed' do 
+      User.sign_up(username: 'test', password: 'test')
+      Space.create_space(name: 'The house', description: 'This house is amazing!', price: 123.30, startdate: '2020-11-10', enddate: '2020-11-17', availability: true, user_id: User.current_user) 
+      Space.book(space_id: Space.current_space, user_id: User.current_user)
+      expect(User.show_approvals(id: User.current_user).length).to eq 1
+      expect(User.show_approvals(id: User.current_user).first.host_id).to eq User.current_user
+    end 
+  end
 end

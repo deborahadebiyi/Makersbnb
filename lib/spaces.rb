@@ -1,6 +1,8 @@
 require 'pg'
 require_relative 'database_connection'
 
+
+
 class Space
 
   attr_reader :name, :description, :price, :startdate, :enddate,:availability, :user_id
@@ -55,7 +57,6 @@ class Space
     host_id = result[0]['user_id']
     DatabaseConnection.query("INSERT INTO bookings (space_id, host_id, user_id, approval) VALUES(#{space_id}, #{host_id}, #{user_id}, false) ")
   end
-
 
 
 
