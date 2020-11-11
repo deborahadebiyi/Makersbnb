@@ -1,0 +1,1 @@
+CREATE TABLE bookings(booking_id SERIAL PRIMARY KEY, space_id INTEGER REFERENCES spaces (space_id), user_id INTEGER REFERENCES users (id), host_id INTEGER, approval BOOLEAN);
