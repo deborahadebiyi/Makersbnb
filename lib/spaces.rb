@@ -25,9 +25,9 @@ class Space
 
   end
 
-  def self.create_space(name:, description:, price:, startdate:, enddate:, availability:)
-    DatabaseConnection.query("INSERT INTO spaces(name, description, price, startdate:, enddate:, availability) 
-    VALUES('#{name}', '#{description}', '#{price}', '#{startdate}', '#{enddate}','#{availability}')")
+  def self.create_space(name:, description:, price:, startdate:, enddate:, availability:, user_id:)
+    DatabaseConnection.query("INSERT INTO spaces(name, description, price, startdate:, enddate:, availability, user_id) 
+    VALUES('#{name}', '#{description}', '#{price}', '#{startdate}', '#{enddate}','#{availability}', '#{user_id}')")
     result = DatabaseConnection.query("SELECT * FROM spaces WHERE name LIKE '#{name}'")
     current_space = result[0]['id']
   end
