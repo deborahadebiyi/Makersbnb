@@ -62,4 +62,9 @@ class MakersBnB < Sinatra::Base
     @pending = User.show_approvals(id: User.current_user)
     erb :approvals
   end
+
+  post '/approved' do
+    Booking.approve(booking_id: params[:booking_id])
+    redirect '/options'
+  end
 end

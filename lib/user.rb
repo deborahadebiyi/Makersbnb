@@ -46,7 +46,7 @@ class User
   end
 
   def self.show_approvals(id:)
-    result = DatabaseConnection.query("SELECT * FROM bookings WHERE host_id = #{id}")
+    result = DatabaseConnection.query("SELECT * FROM bookings WHERE host_id = #{id} AND approval = false")
     result.map do |booking|
       Booking.new(booking['booking_id'], booking['space_id'], booking['host_id'], booking['user_id'], booking['approval'])
     end
