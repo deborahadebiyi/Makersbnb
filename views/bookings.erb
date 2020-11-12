@@ -1,1 +1,5 @@
-<%= booking.check_bookings %>
+<% @spaces.each do |space|  %>
+<ul style="list-style: none;" >
+  <li> <%= space.name %> </li>
+</ul>
+<% end %>
