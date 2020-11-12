@@ -22,7 +22,7 @@ class Space
   def self.all
     result = DatabaseConnection.query('SELECT * FROM spaces')
     result.map do |space| 
-        Space.new(result[0]['space_id'], result[0]['name'], result[0]['description'], result[0]['price'], result[0]['startdate'], result[0]['enddate'], result[0]['availability'], result[0]['user_id'])
+        Space.new(space['space_id'], space['name'], space['description'], space['price'], space['startdate'], space['enddate'], space['availability'], space['user_id'])
     end 
 
   end
@@ -57,7 +57,4 @@ class Space
     host_id = result[0]['user_id']
     DatabaseConnection.query("INSERT INTO bookings (space_id, host_id, user_id, approval) VALUES(#{space_id}, #{host_id}, #{user_id}, false) ")
   end
-
-
-
 end
