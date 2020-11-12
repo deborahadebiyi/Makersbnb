@@ -51,7 +51,7 @@ I would like to offer a range of available dates
 | Properties| id          |
 |           | username    | 
 |           | current_user| 
-|                         |
+|           |             |
 | Actions   | sign_up     |
 |           | log_in      |
 |           | all         |
@@ -71,26 +71,22 @@ I would like to offer a range of available dates
 |           | user_id     |
 |           | current_space|
 |           |             |
-| Actions   | sign_up     |
-|           | log_in      |
-|           | all         |
-|           | find_user   |
-|           | current_user| 
-|           | name_taken  |
+| Actions          | all |
+|            |  create_space|
+|            | is_available |
+|             |current_space| 
+|             | find_space |
+|             | book        |
 
 | class     | Booking     |
 |-----------|-------------|
-| Properties| id          |
-|           | username    | 
-|           | current_user| 
-|                         |
-| Actions   | sign_up     |
-|           | log_in      |
-|           | all         |
-|           | find_user   |
-|           | current_user| 
-|           | name_taken  |
+| Properties| booking_id |
+||space_id |
+||host_id |
+||user_id |
+||approval|
+| | |
+| Actions   | approve |
+||check_bookings |
+||find_booking_id |
 
-**Entity Relationship Diagram**
-
-![alt text](https://github.com/swizelc/Makersbnb/blob/master/Screenshot%202020-11-12%20at%2015.02.35.png)
