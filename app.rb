@@ -58,7 +58,8 @@ class MakersBnB < Sinatra::Base
     erb :bookings
   end
 
-  get '/approvals' do
+  get '/approve' do
+    @pending = User.show_approvals(id: User.current_user)
     erb :approvals
   end
 end

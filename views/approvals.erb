@@ -1,0 +1,7 @@
+<% @pending.each do |room| %>
+  <% space = Space.find_space(space_id: room.space_id) %>
+  <% @user = User.find_user(id: room.user_id) %>
+  <%= space.name %>
+  <%= @user.username %>
+  <br>
+<% end %>
