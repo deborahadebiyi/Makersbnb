@@ -59,3 +59,34 @@ I would like to offer a range of available dates
 |           | current_user| 
 |           | name_taken  |
 
+| class     | Space       |
+|-----------|-------------|
+| Properties| space_id    |
+|           | name        |
+|           | description |
+|           | price       |
+|           | startdate   |
+|           | enddate     |
+|           | availability|
+|           | user_id     |
+|           | current_space|
+|           |             |
+| Actions   | sign_up     |
+|           | log_in      |
+|           | all         |
+|           | find_user   |
+|           | current_user| 
+|           | name_taken  |
+
+| class     | Booking     |
+|-----------|-------------|
+| Properties| id          |
+|           | username    | 
+|           | current_user| 
+|                         |
+| Actions   | sign_up     |
+|           | log_in      |
+|           | all         |
+|           | find_user   |
+|           | current_user| 
+|           | name_taken  |
