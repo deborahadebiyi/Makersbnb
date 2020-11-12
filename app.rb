@@ -42,8 +42,16 @@ class MakersBnB < Sinatra::Base
     erb :list_space
   end
 
+  post '/book' do
+    Space.book(space_id: params[:space_id], user_id: User.current_user)
+  end
+
   post '/syncing' do
     Space.create_space(name: params[:name], description: params[:description], price: params[:price], startdate: params[:startdate], enddate: params[:enddate],availability: true, user_id: User.current_user)
     redirect '/spaces'
+  end
+
+  get '/bookings' do
+    erb :bookings
   end
 end
