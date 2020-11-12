@@ -90,3 +90,7 @@ I would like to offer a range of available dates
 ||check_bookings |
 ||find_booking_id |
 
+
+**Entity Relationship Diagram**
+
+![alt text] (https://github.com/swizelc/Makersbnb/blob/master/Screenshot%202020-11-12%20at%2015.02.35.png)
