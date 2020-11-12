@@ -2,7 +2,7 @@ class Booking
     attr_reader :booking_id, :space_id, :host_id, :user_id, :approval
 
     def initialize(booking_id, space_id, host_id, user_id, approval)
-        @booking_id = id
+        @booking_id = booking_id
         @space_id = space_id
         @host_id = host_id
         @user_id = user_id

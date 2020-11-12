@@ -38,8 +38,8 @@ class MakersBnB < Sinatra::Base
     erb :all_spaces
   end
 
-  get '/create-space' do
-    erb :create_space
+  get '/list-space' do
+    erb :list_space
   end
 
   post '/book' do
