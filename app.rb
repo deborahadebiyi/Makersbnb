@@ -33,6 +33,7 @@ class MakersBnB < Sinatra::Base
     @user = User.find_user(id: User.current_user)
     erb :options
   end
+
   get '/spaces' do
     @spaces = Space.all
     erb :all_spaces
@@ -52,6 +53,11 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/bookings' do
+    @bookings = Bookings.check_bookings(user_id: User.current_user)
     erb :bookings
+  end
+
+  post '/approvals' do
+    erb :approvals
   end
 end
