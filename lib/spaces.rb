@@ -21,14 +21,14 @@ class Space
 
   def self.all
     result = DatabaseConnection.query('SELECT * FROM spaces')
-    result.map do |space| 
+    result.map do |space|
         Space.new(space['space_id'], space['name'], space['description'], space['price'], space['startdate'], space['enddate'], space['availability'], space['user_id'])
-    end 
+    end
 
   end
 
   def self.create_space(name:, description:, price:, startdate:, enddate:, availability:, user_id:)
-    DatabaseConnection.query("INSERT INTO spaces(name, description, price, startdate, enddate, availability, user_id) 
+    DatabaseConnection.query("INSERT INTO spaces(name, description, price, startdate, enddate, availability, user_id)
     VALUES('#{name}', '#{description}', '#{price}', '#{startdate}', '#{enddate}','#{availability}', '#{user_id}')")
     result = DatabaseConnection.query("SELECT * FROM spaces WHERE name LIKE '#{name}'")
     @current_space = result[0]['space_id']
@@ -39,12 +39,12 @@ class Space
     result = DatabaseConnection.query("SELECT * FROM spaces WHERE space_id = #{space_id}")
     p result[0]['availability']
     return true if result[0]['availability'] == 't'
-    return false 
+    return false
   end
 
   def self.current_space
     @current_space
-  end 
+  end
 
   def self.find_space(space_id:)
     result = DatabaseConnection.query("SELECT * FROM spaces WHERE space_id = #{space_id}")
@@ -57,4 +57,11 @@ class Space
     host_id = result[0]['user_id']
     DatabaseConnection.query("INSERT INTO bookings (space_id, host_id, user_id, approval) VALUES(#{space_id}, #{host_id}, #{user_id}, false) ")
   end
+<<<<<<< HEAD
+
+
+
 end
+=======
+end
+>>>>>>> 2abc2893b670dfb9d7addd287a648346305005e6

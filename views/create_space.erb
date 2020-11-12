@@ -1,4 +1,4 @@
-<form action="/spaces" method="post">
+<form action = "/syncing" method="post">
   <label> Name
   <input type="text" name="name">
   </label>
@@ -8,12 +8,12 @@
   <label> Price
   <input type="number" name="price">
   </label>
-  <label> Date
-  <input type="date" name="date">
+  <label> Start date
+  <input type="date" name="startdate">
   </label>
-  <label> Availability
-  <input type="text" name="availability">
+  <label> End date
+  <input type="date" name="enddate">
   </label>
   <input type="submit" value="Create space">
 </form>
-<h3> New space succesfully created! </h3>
+<%=flash[:notice]%>
