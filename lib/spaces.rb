@@ -5,7 +5,7 @@ require_relative 'database_connection'
 
 class Space
 
-  attr_reader :name, :description, :price, :startdate, :enddate,:availability, :user_id
+  attr_reader :name, :description, :price, :startdate, :enddate,:availability, :user_id, :space_id
   @current_space
   def initialize(space_id, name, description, price, startdate, enddate, availability, user_id)
     @space_id = space_id
