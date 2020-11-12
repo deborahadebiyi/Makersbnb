@@ -1,1 +1,8 @@
-<%= @bookings %>
+<% @bookings.each do |booking|  %>
+<ul style="list-style: none;" >
+  <li>  <%= booking.booking_id %> </li>
+  <li> <%= booking.space_id %> </li>
+  <li> <%= booking.host_id %> </li>
+  <li> <%= booking.approval %> </li>
+</ul>
+<% end %>

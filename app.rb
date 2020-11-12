@@ -56,4 +56,8 @@ class MakersBnB < Sinatra::Base
     @bookings = Bookings.check_bookings(user_id: User.current_user)
     erb :bookings
   end
+
+  get '/approvals' do
+    erb :approvals
+  end
 end
