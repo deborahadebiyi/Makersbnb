@@ -39,14 +39,11 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/create-space' do
-    flash[:notice] = "<h3> New space succesfully created! </h3>"
     erb :create_space
   end
 
   post '/syncing' do
     Space.create_space(name: params[:name], description: params[:description], price: params[:price], startdate: params[:startdate], enddate: params[:enddate],availability: true, user_id: User.current_user)
-    redirect '/options'
+    redirect '/spaces'
   end
-
-
 end
