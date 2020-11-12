@@ -1,7 +1,8 @@
 <% @spaces.each do |space|  %>
-  <%= space.space_id %>
-  <%= space.name %>
-  <%= space.space_id %>
+<ul style="list-style: none;" >
+  <li>  <%= space.space_id %> </li>
+  <li> <%= space.name %> </li>
+</ul>
 <% end %>
 <body>
   <form action="/book" method="post">
