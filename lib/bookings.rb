@@ -12,8 +12,13 @@ class Booking
     end
 
     def self.approve(booking_id:)
-        DatabaseConnection.query("UPDATE bookings SET approval = true WHERE booking_id = #{booking_id}")
-        return true
+        result = DatabaseConnection.query("SELECT * FROM bookings WHERE host_id = #{User.current_user} AND booking_id = #{booking_id}")
+        if result.ntuples != 0
+          DatabaseConnection.query("UPDATE bookings SET approval = true WHERE booking_id = #{booking_id}")
+          return true
+        else
+          return false
+        end
     end
 
     def self.check_bookings(user_id:)

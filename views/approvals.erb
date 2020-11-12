@@ -1,0 +1,14 @@
+<% @pending.each do |room| %>
+  <% space = Space.find_space(space_id: room.space_id) %>
+  <% @user = User.find_user(id: room.user_id) %>
+  <%= room.booking_id %>
+  <%= space.name %>
+  <%= @user.username %>
+  <br>
+<% end %>
+<body>
+  <form action="/approved" method="post">
+    <input type="number" name="booking_id">
+    <input type="submit" name="Approve space">
+  </form>
+</body>

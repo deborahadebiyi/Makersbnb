@@ -35,7 +35,7 @@ class User
       User.new(user['id'],user['username'])
     end
   end
-  
+
   def self.find_user(id:)
     result = DatabaseConnection.query("SELECT * FROM users WHERE id = '#{id}'")
     User.new(result[0]['id'], result[0]['username'])
@@ -43,14 +43,14 @@ class User
 
   def self.current_user
     @current_user
-  end 
+  end
 
   def self.show_approvals(id:)
-    result = DatabaseConnection.query("SELECT * FROM bookings WHERE host_id = #{id}")
-    result.map do |booking| 
-      Booking.new(booking['id'], booking['space_id'], booking['host_id'], booking['user_id'], booking['approval'])
-    end 
-  end 
+    result = DatabaseConnection.query("SELECT * FROM bookings WHERE host_id = #{id} AND approval = false")
+    result.map do |booking|
+      Booking.new(booking['booking_id'], booking['space_id'], booking['host_id'], booking['user_id'], booking['approval'])
+    end
+  end
   private
 
   def self.name_taken(username:)
