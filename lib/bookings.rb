@@ -1,8 +1,8 @@
 class Booking
-    attr_reader :id, :space_id, :host_id, :user_id, :approval
+    attr_reader :booking_id, :space_id, :host_id, :user_id, :approval
 
-    def initialize(id, space_id, host_id, user_id, approval)
-        @id = id
+    def initialize(booking_id, space_id, host_id, user_id, approval)
+        @booking_id = booking_id
         @space_id = space_id
         @host_id = host_id
         @user_id = user_id
@@ -14,10 +14,10 @@ class Booking
         return true
     end 
   
-    def self.check_bookings(user_id:)
+    def self .check_bookings(user_id:)
         result = DatabaseConnection.query("SELECT * FROM bookings WHERE user_id = #{user_id}")
         result.map do |booking|
-            Booking.new(booking['id'], booking['space_id'], booking['host_id'], booking['user_id'], booking['approval'])
+            Booking.new(booking['booking_id'], booking['space_id'], booking['host_id'], booking['user_id'], booking['approval'])
         end
     end 
 
