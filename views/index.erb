@@ -1,23 +1,27 @@
-<h1>Welcome to MakersBnB<h1>
-
+<h1>Welcome to MakersBnB</h1>
 <body>
-    <h3>Login<h3>
     <form action='/options' method='post'>
+        <legend>Login:</legend>
+        <fieldset>
         <label for="username">Username: </label>
         <input type="text" name="username"><br>
         <label for="password">Password: </label>
         <input type="password" name="password"><br><br>
         <input type="submit" value="Log in">
+        </fieldset>
     </form>
 
 
-    <h3>Sign Up<h3>
+
     <form action='/options/new_user' method='post'>
+      <legend>Sign Up:</legend>
+        <fieldset>
         <label for="username">Username: </label>
         <input type="text" name="new_username"><br>
         <label for="password">Password: </label>
         <input type="password" name="new_password"><br><br>
         <input type="submit" value="Sign Up">
+        </fieldset>
     </form>
 
-<body>
+</body>
