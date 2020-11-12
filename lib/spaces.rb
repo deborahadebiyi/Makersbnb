@@ -57,7 +57,11 @@ class Space
     host_id = result[0]['user_id']
     DatabaseConnection.query("INSERT INTO bookings (space_id, host_id, user_id, approval) VALUES(#{space_id}, #{host_id}, #{user_id}, false) ")
   end
+<<<<<<< HEAD
 
 
 
 end
+=======
+end
+>>>>>>> 2abc2893b670dfb9d7addd287a648346305005e6
