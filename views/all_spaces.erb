@@ -1,10 +1,18 @@
+
 <% @spaces.each do |space|  %>
-  <%= space.space_id %>
-  <%= space.name %>
+    <fieldset>
+      <legend><%=space.name%> </legend>
+      <label>Space ID: <%= space.space_id %></label> <br>
+      <label>Description: <%= space.description %></label> <br>
+      <label>Price: <%= space.price %></label> <br>
+      <label>Dates available: <%= space.startdate %>  To  <%=space.enddate%></label> <br>
+    </fieldset> <br>
 <% end %>
+
 <body>
   <form action="/book" method="post">
     <input type="number" name="space_id">
     <input type="submit" name="Book space">
   </form>
+
 </body>
