@@ -37,9 +37,9 @@ class Booking
         return result[0]['booking_id']
     end
 
-    def self.get_space_details
+    def self.get_space_details(user_id:)
       spaces = []
-      bookings = Booking.check_bookings(user_id: User.current_user)
+      bookings = Booking.check_bookings(user_id: user_id)
       bookings.each do |booking|
         spaces << Space.find_space(space_id: booking.space_id)
       end

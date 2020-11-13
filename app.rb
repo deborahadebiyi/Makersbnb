@@ -54,7 +54,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/bookings' do
-    @spaces = Booking.get_space_details
+    @spaces = Booking.get_space_details(user_id: User.current_user)
     erb :bookings
   end
 
