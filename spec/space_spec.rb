@@ -20,7 +20,7 @@ describe Space do
      it 'creates a new space' do
         User.sign_up(username: 'test', password: 'test')
         Space.create_space(name: 'The house', description: 'This house is amazing!', price: 123.30, startdate: '2020-11-10', enddate: '2020-11-17', availability: true, user_id: User.current_user)
-        space = Space.all 
+        space = Space.all
         expect(space.length).to eq 1
     end
   end
@@ -28,7 +28,7 @@ describe Space do
   describe '.find_space' do
     it 'finds a space' do
       User.sign_up(username: 'test', password: 'test')
-      Space.create_space(name: 'The house', description: 'This house is amazing!', price: 123.30, startdate: '2020-11-10', enddate: '2020-11-17', availability: true, user_id: User.current_user)  
+      Space.create_space(name: 'The house', description: 'This house is amazing!', price: 123.30, startdate: '2020-11-10', enddate: '2020-11-17', availability: true, user_id: User.current_user)
       space = Space.find_space(space_id: Space.current_space)
       expect(space.name).to eq 'The house'
     end
@@ -37,10 +37,9 @@ describe Space do
   describe '.book' do
     it 'changes the availability to false and inserts space into booking table' do
       User.sign_up(username: 'test', password: 'test')
-      Space.create_space(name: 'The house', description: 'This house is amazing!', price: 123.30, startdate: '2020-11-10', enddate: '2020-11-17', availability: true, user_id: User.current_user) 
+      Space.create_space(name: 'The house', description: 'This house is amazing!', price: 123.30, startdate: '2020-11-10', enddate: '2020-11-17', availability: true, user_id: User.current_user)
       Space.book(space_id: Space.current_space, user_id: User.current_user)
       space = Space.find_space(space_id: Space.current_space)
-      p space.availability
       expect(space.availability).to eq 'f'
     end
   end
@@ -48,7 +47,7 @@ describe Space do
   describe '.is_available' do
     it 'Checks if availability is set to true' do
       User.sign_up(username: 'test', password: 'test')
-      Space.create_space(name: 'The house', description: 'This house is amazing!', price: 123.30, startdate: '2020-11-10', enddate: '2020-11-17', availability: true, user_id: User.current_user) 
+      Space.create_space(name: 'The house', description: 'This house is amazing!', price: 123.30, startdate: '2020-11-10', enddate: '2020-11-17', availability: true, user_id: User.current_user)
       space = Space.find_space(space_id: Space.current_space)
       expect(space.availability).to eq 't'
     end
