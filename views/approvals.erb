@@ -1,17 +1,14 @@
 <% @pending.each do |room| %>
   <% space = Space.find_space(space_id: room.space_id) %>
   <% @user = User.find_user(id: room.user_id) %>
-  <fieldset>
-      <legend><%=space.name%> </legend>
-      <label>Booking ID: <%= room.booking_id %></label> <br>
-      <label>Description: <%= space.description %></label> <br>
-      <label>Price: <%= space.price %></label> <br>
-      <label>Guest: <%= @user.username %> </label> <br>
-    </fieldset> <br>
+  <form action='/approved/<%=room.booking_id%>' method='post'>
+    <fieldset>
+        <legend><%=space.name%> </legend>
+        <label>Description: <%= space.description %></label> <br>
+        <label>Price: <%= space.price %></label> <br>
+        <label>Guest: <%= @user.username %> </label> <br>
+        <input type="submit" value="Approve space">
+      </fieldset> <br>
+    </form>
 <% end %>
-<body>
-  <form action="/approved" method="post">
-    <input type="number" name="booking_id">
-    <input type="submit" name="Approve space">
-  </form>
-</body>
+

@@ -43,7 +43,7 @@ class MakersBnB < Sinatra::Base
     erb :list_space
   end
 
-  post '/book' do
+  post '/book/:space_id' do
     Space.book(space_id: params[:space_id], user_id: User.current_user)
     redirect '/options'
   end
@@ -63,7 +63,7 @@ class MakersBnB < Sinatra::Base
     erb :approvals
   end
 
-  post '/approved' do
+  post '/approved/:booking_id' do
     Booking.approve(booking_id: params[:booking_id])
     redirect '/options'
   end
