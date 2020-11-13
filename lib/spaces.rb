@@ -37,7 +37,6 @@ class Space
 
   def self.is_available(space_id:)
     result = DatabaseConnection.query("SELECT * FROM spaces WHERE space_id = #{space_id}")
-    p result[0]['availability']
     return true if result[0]['availability'] == 't'
     return false
   end
@@ -57,4 +56,12 @@ class Space
     host_id = result[0]['user_id']
     DatabaseConnection.query("INSERT INTO bookings (space_id, host_id, user_id, approval) VALUES(#{space_id}, #{host_id}, #{user_id}, false) ")
   end
+
+  def self.is_approved?(space_id:)
+    result = DatabaseConnection.query("SELECT * FROM bookings WHERE space_id = #{space_id}")
+    result.each do |booking|
+      return true if booking['approval'] == 't'
+    end 
+    return false
+  end 
 end
