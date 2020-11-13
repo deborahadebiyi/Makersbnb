@@ -29,3 +29,16 @@ footer {
   text-align: center;
   font-size: medium;
 }
+
+.menu-container {
+
+  border: 3px solid #fff;
+  padding: 20px;
+}
+.menu-child {
+  width: 20%;
+  float: left;
+  padding: 20px;
+  border: 2px solid red;
+
+}

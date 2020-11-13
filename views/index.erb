@@ -1,7 +1,14 @@
+<head>
+<link href="<%= url('styles.css') %>" rel="stylesheet" type="text/css" />
+</head>
+<center>
+
 <h1>Welcome to MakersBnB</h1>
 <body>
+<div class="menu-container">
+  <div class="menu-child" id="login">
     <form action='/options' method='post'>
-        <fieldset>
+        <fieldset style="width:100px">
         <legend>Login:</legend>
         <label for="username">Username: </label>
         <input type="text" name="username"><br>
@@ -10,11 +17,12 @@
         <input type="submit" value="Log in">
         </fieldset>
     </form>
+  </div>
 
 
-
+  <div class="menu-child" id="signup">
     <form action='/options/new_user' method='post'>
-      <fieldset>
+      <fieldset style="width:100px">
       <legend>Sign Up:</legend>
         <label for="username">Username: </label>
         <input type="text" name="new_username"><br>
@@ -23,5 +31,6 @@
         <input type="submit" value="Sign Up">
         </fieldset>
     </form>
-
+  </div>
+</div>
 </body>

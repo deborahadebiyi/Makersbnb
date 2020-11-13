@@ -1,5 +1,8 @@
 <% @spaces.each do |space|  %>
-<ul style="list-style: none;" >
-  <li> <%= space.name %> </li>
-</ul>
+<fieldset>
+  <legend><b><%=space.name%> </b></legend>
+  <label>Description: <%= space.description %></label> <br>
+  <label>Price: £<%= space.price %></label> <br>
+  <label>Dates available: <%= space.startdate %>  To  <%=space.enddate%></label> <br>
+</fieldset>
 <% end %>
