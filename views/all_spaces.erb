@@ -1,3 +1,7 @@
+<form action='/options' method='get'>
+  <input type='submit' value='Back'>
+</form>
+
 <div class='attribute'>
   <% @spaces.each do |space|  %>
     <form action="/book/<%=space.space_id%>" method='post'>
@@ -6,10 +10,11 @@
         <label>Description: <%= space.description %></label> <br>
         <label>Price: £<%= space.price %></label> <br>
         <label>Dates available: <%= space.startdate %>  To  <%=space.enddate%></label> <br>
-        <input type='submit' value='Book'>
+        <%if !Space.is_approved?(space_id: space.space_id)%>
+          <input type='submit' value='Book'>
+        <%end%>
       </fieldset> <br>
     </form>
   <% end %>
 </div>
-
 
