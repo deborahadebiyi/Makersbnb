@@ -1,15 +1,45 @@
-<h1>Welcome <%=@user.username%><h1>
+<head>
+  <!-- CSS Bootstrap only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <!-- CSS STYLE.CSS-->
+  <link href="<%= url('styles.css') %>" rel="stylesheet" type="text/css" />
+</head>
 <body>
-    <form action='/list-space' method='get'>
-        <input type='submit' value='List a space'>
-    </form>
-    <form action='/spaces' method='get'>
-        <input type='submit' value='Book a space'>
-    </form>
-    <form action='/approve' method='get'>
-        <input type='submit' value='Approve a space'>
-    </form>
-    <form action='/bookings' method='get'>
-        <input type='submit' value='Show bookings'>
-    </form>
+  <nav>
+    <div class="alert alert-info" role="alert">
+    Amidst the COVID-19 pandemic we are complying with guidelines regarding booking spaces. Get the latest on our COVID-19 response.
+    <button type="button" class="btn btn-info">Find Out More</button>
+    </div>
+  </nav>
+  <h1>Welcome <%=@user.username%><h1>
+    <div class="carousel">
+      <div class="option">
+        <form action='/list-space' method='get'>
+            <input type='submit' value='List a space'>
+            <img src="images/humaaans.png" alt="listspace">
+        </form>
+      </div>
+        <div class="option">
+        <form action='/spaces' method='get'>
+            <input type='submit' value='Book a space'>
+            <img src="images/humaaans (1).png" alt="bookspace">
+        </form>
+      </div>
+        <div class="option">
+        <form action='/approve' method='get'>
+            <input type='submit' value='Approve a space'>
+            <img src="images/humaaans (2).png" alt="approvespace">
+        </form>
+      </div>
+        <div class="option">
+        <form action='/bookings' method='get'>
+            <input type='submit' value='Show bookings'>
+            <img src="images/humaaans (3).png" alt="showbookings">
+        </form>
+      </div>
+    </div>
 </body>
+<footer>
+  <p>MakersBnb© 2020 | All Rights Reserved<br>
+  <a href="https://github.com/makersacademy/course/blob/master/makersbnb/specification_and_mockups.md">An Autumn8</Autumn8> Project</a><br>
+  <a href="#">Privacy Policy</a></p>
