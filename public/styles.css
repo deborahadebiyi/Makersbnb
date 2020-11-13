@@ -31,14 +31,28 @@ footer {
 }
 
 .menu-container {
-
-  border: 3px solid #fff;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 80px;
 }
 .menu-child {
-  width: 20%;
-  float: left;
-  padding: 20px;
-  border: 2px solid red;
 
+  font-size: 20px;
+  width: 30%;
+  float: left;
+
+}
+
+h1 {
+
+  margin-top: 50px;
+}
+
+.backgroundmenu {
+  font-family: Stalinist One;
+  background-image: url('https://www.fodors.com/wp-content/uploads/2019/01/02_Best_Luxury_Caribbean_Spice_Island_Oasis-Swimming-Pool-Swim-Up-Jacuzzi-2_HR-588fbd97920bd.jpg');
+}
+
+.attribute {
+  background-image: url('https://news.airbnb.com/wp-content/uploads/sites/4/2020/04/Airbnb_Ireland_Lakeside_House_Featured.jpg');
 }

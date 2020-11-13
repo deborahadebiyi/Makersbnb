@@ -1,15 +1,24 @@
+<head>
+  <link href="<%= url('styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+<body>
+  <form action='/options' method='get'>
+    <input type='submit' value='Back'>
+  </form>
+<br>
 <div class='attribute'>
   <% @spaces.each do |space|  %>
     <form action="/book/<%=space.space_id%>" method='post'>
       <fieldset>
-        <legend><b><%=space.name%> </b></legend>
-        <label>Description: <%= space.description %></label> <br>
-        <label>Price: £<%= space.price %></label> <br>
-        <label>Dates available: <%= space.startdate %>  To  <%=space.enddate%></label> <br>
-        <input type='submit' value='Book'>
+        <legend><b><%=space.name%> </b></legend><br>
+        <label><b>Description:</b> <%= space.description %></label> <br><br>
+        <label><b>Price: </b>£<%= space.price %></label> <br><br>
+        <label><b>Dates available:</b> <%= space.startdate %>  To  <%=space.enddate%></label> <br><br>
+        <%if !Space.is_approved?(space_id: space.space_id)%>
+          <input type='submit' value='Book'>
+        <%end%>
       </fieldset> <br>
     </form>
   <% end %>
 </div>
-
-
+</body>
