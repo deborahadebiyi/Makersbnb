@@ -1,0 +1,31 @@
+.carousel {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.img {
+  width: 100%;
+}
+
+.option {
+  width: 18vw ;
+  padding: 10px;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom:0;
+  right:0;
+  width: 100%
+
+  padding: 3px;
+  background-color: white;
+  color: black;
+}
+
+footer {
+  text-align: center;
+  font-size: medium;
+}
