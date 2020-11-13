@@ -1,14 +1,21 @@
-<% @pending.each do |room| %>
-  <% space = Space.find_space(space_id: room.space_id) %>
-  <% @user = User.find_user(id: room.user_id) %>
-  <form action='/approved/<%=room.booking_id%>' method='post'>
-    <fieldset>
-        <legend><%=space.name%> </legend>
-        <label>Description: <%= space.description %></label> <br>
-        <label>Price: <%= space.price %></label> <br>
-        <label>Guest: <%= @user.username %> </label> <br>
-        <input type="submit" value="Approve Booking">
-      </fieldset> <br>
-    </form>
-<% end %>
-
+<head>
+  <link href="<%= url('styles.css') %>" rel="stylesheet" type="text/css" />
+</head>
+<body class = "attribute2">
+  <form action='/options' method='get'>
+    <input type='submit' value='Menu'>
+  </form>
+  <% @pending.each do |room| %>
+    <% space = Space.find_space(space_id: room.space_id) %>
+    <% @user = User.find_user(id: room.user_id) %>
+    <form action='/approved/<%=room.booking_id%>' method='post'>
+      <fieldset id=dark>
+          <legend><%=space.name%> </legend>
+          <label>Description: <%= space.description %></label> <br>
+          <label>Price: <%= space.price %></label> <br>
+          <label>Guest: <%= @user.username %> </label> <br>
+          <input type="submit" value="Approve Booking">
+        </fieldset> <br>
+      </form>
+  <% end %>
+</body>

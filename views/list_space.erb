@@ -1,17 +1,25 @@
-<form action = "/syncing" method="post">
-  <fieldset>
-    <legend>List Space:</legend>
-    <label for="name">Room Name:</label>
-    <input type="text" name="name"><br><br>
-    <label for="description"> Description: </label>
-    <input type="text" name="description"><br><br>
-    <label for="price"> Price: </label>
-    <input type="number" name="price"><br><br>
-    <label for="startdate"> Start date: </label>
-    <input type="date" name="startdate"><br><br>
-    <label for="enddate"> End date: </label>
-    <input type="date" name="enddate"><br><br>
-    <input type="submit" value="List Space">
-  </fieldset>
-</form>
-<%=flash[:notice]%>
+<head>
+  <link href="<%= url('styles.css') %>" rel="stylesheet" type="text/css" />
+</head>
+<body class = "attribute4">
+  <form action='/options' method='get'>
+    <input type='submit' value='Menu'>
+  </form>
+  <br>
+  <form action = "/syncing" method="post">
+    <fieldset style="width:300px" id="bright">
+      <legend>List Space:</legend>
+      <label for="name">Room Name:</label>
+      <input type="text" name="name"><br><br>
+      <label for="description"> Description: </label>
+      <input type="text" name="description"><br><br>
+      <label for="price"> Price: </label>
+      <input type="number" name="price"><br><br>
+      <label for="startdate"> Start date: </label>
+      <input type="date" name="startdate"><br><br>
+      <label for="enddate"> End date: </label>
+      <input type="date" name="enddate"><br><br>
+      <input type="submit" value="List Space">
+    </fieldset>
+  </form>
+</body>

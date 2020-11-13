@@ -1,8 +1,16 @@
+<head>
+  <link href="<%= url('styles.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+<body class='attribute3'>
+<form action='/options' method='get'>
+  <input type='submit' value='Menu'>
+</form>
 <% @spaces.each do |space|  %>
-<fieldset>
+<fieldset id=bright>
   <legend><b><%=space.name%> </b></legend>
   <label>Description: <%= space.description %></label> <br>
   <label>Price: £<%= space.price %></label> <br>
   <label>Dates available: <%= space.startdate %>  To  <%=space.enddate%></label> <br>
 </fieldset>
 <% end %>
+</body>
